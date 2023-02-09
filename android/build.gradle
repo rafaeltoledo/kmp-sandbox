@@ -6,8 +6,15 @@ plugins {
 android {
   compileSdk 33
   namespace 'net.rafaeltoledo.reddit.android'
+
+  defaultConfig {
+    targetSdk 33
+    minSdk 24
+  }
 }
 
 dependencies {
   implementation project(':shared')
+
+  implementation libs.androidx.activity.compose
 }

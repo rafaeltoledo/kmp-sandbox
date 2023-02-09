@@ -1,7 +1,11 @@
 [versions]
 agp = "7.4.1"
+androidx-activity = "1.6.1"
 kotlin = "1.8.10"
 ktor = "2.2.3"
+
+[libraries]
+androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activity" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
