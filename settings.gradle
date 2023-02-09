@@ -17,3 +17,4 @@ dependencyResolutionManagement {
 rootProject.name = 'Reddit'
 
 include ':shared'
+include ':android'

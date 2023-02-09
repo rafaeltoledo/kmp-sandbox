@@ -1,0 +1,13 @@
+plugins {
+  id 'com.android.application'
+  id 'org.jetbrains.kotlin.android'
+}
+
+android {
+  compileSdk 33
+  namespace 'net.rafaeltoledo.reddit.android'
+}
+
+dependencies {
+  implementation project(':shared')
+}
