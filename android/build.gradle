@@ -4,12 +4,23 @@ plugins {
 }
 
 android {
-  compileSdk 33
+  compileSdk libs.versions.targetSdk.get().toInteger()
   namespace 'net.rafaeltoledo.reddit.android'
 
   defaultConfig {
-    targetSdk 33
-    minSdk 24
+    targetSdk libs.versions.targetSdk.get().toInteger()
+    minSdk libs.versions.minSdk.get().toInteger()
+  }
+
+  compileOptions {
+    coreLibraryDesugaringEnabled true
+
+    sourceCompatibility JavaVersion.VERSION_11
+    targetCompatibility JavaVersion.VERSION_11
+  }
+
+  kotlinOptions {
+    jvmTarget = 11
   }
 }
 
@@ -17,4 +28,6 @@ dependencies {
   implementation project(':shared')
 
   implementation libs.androidx.activity.compose
+
+  coreLibraryDesugaring libs.android.tools.jdk.desugar
 }

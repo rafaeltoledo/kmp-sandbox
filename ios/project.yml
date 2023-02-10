@@ -8,5 +8,6 @@ targets:
     type: application
     platform: iOS
     deploymentTarget: "14.0"
-    sources:
-      - Reddit
+    sources: Reddit
+    dependencies:
+      - framework: ../shared/build/fat-framework/release/Shared.framework

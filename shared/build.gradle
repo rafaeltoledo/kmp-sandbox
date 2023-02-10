@@ -1,13 +1,64 @@
+import org.gradle.nativeplatform.platform.internal.DefaultNativePlatform
+
 plugins {
-  id 'com.android.library'
-  id 'org.jetbrains.kotlin.multiplatform'
+  alias libs.plugins.android.library
+  alias libs.plugins.kotlin.multiplatform
+}
+
+android {
+  compileSdk libs.versions.targetSdk.get().toInteger()
+  namespace 'net.rafaeltoledo.reddit'
+
+  defaultConfig {
+    multiDexEnabled true
+    minSdk libs.versions.minSdk.get().toInteger()
+  }
+
+  compileOptions {
+    coreLibraryDesugaringEnabled true
+
+    sourceCompatibility JavaVersion.VERSION_11
+    targetCompatibility JavaVersion.VERSION_11
+  }
+}
+
+dependencies {
+  coreLibraryDesugaring libs.android.tools.jdk.desugar
 }
 
 kotlin {
   android()
-}
 
-android {
-  compileSdk 33
-  namespace 'net.rafaeltoledo.reddit'
+  def os = DefaultNativePlatform.currentOperatingSystem
+  def architecture = DefaultNativePlatform.currentArchitecture
+  if (os.macOsX) {
+    ios {
+      binaries {
+        framework {
+          baseName = project.name.capitalize()
+        }
+      }
+    }
+
+    if (architecture.isArm()) {
+      iosSimulatorArm64 {
+        binaries {
+          framework {
+            baseName = project.name.capitalize()
+          }
+        }
+      }
+
+      sourceSets {
+        iosSimulatorArm64Main {
+          dependsOn iosMain
+        }
+        iosSimulatorArm64Test {
+          dependsOn iosTest
+        }
+      }
+    }
+  }
+
+  jvmToolchain(11)
 }

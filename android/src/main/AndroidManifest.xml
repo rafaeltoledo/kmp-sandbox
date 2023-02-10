@@ -3,7 +3,9 @@
 
   <uses-permission android:name="android.permission.INTERNET" />
 
-  <application android:name=".RedditApp">
+  <application
+    android:name=".RedditApp"
+    android:icon="@mipmap/ic_launcher">
     <activity
       android:name=".ui.MainActivity"
       android:exported="true">

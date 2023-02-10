@@ -4,11 +4,19 @@ on: push
 
 jobs:
   build:
-    runs-on: macOS-latest # We will build iOS here, so macOS is needed
+    runs-on: macOS-latest
+    env:
+      JAVA_TOOL_OPTIONS: '-XX:MaxMetaspaceSize=4096m'
+      GRADLE_OPTS: '-Dorg.gradle.daemon=false -Dorg.gradle.parallel=true -Dorg.gradle.workers.max=2 -Dkotlin.incremental=false -Dkotlin.compiler.execution.strategy=in-process'
 
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+      - name: Cache Kotlin Native
+        uses: actions/cache@v3
+        with:
+          path: ~/.konan
+          key: ${{ runner.os }}-${{ hashFiles('**/build.gradle', '**/settings.gradle', '**/libs.versions.toml', '**/gradle-wrapper.properties') }}
       - name: Gradle Wrapper Validation
         uses: gradle/wrapper-validation-action@v1
       - name: Install JDK
@@ -20,7 +28,7 @@ jobs:
       - name: Configure Gradle
         run: ./gradlew help
       - name: Build Android project
-        run: ./gradlew build --stacktrace
+        run: ./gradlew clean assemble --stacktrace
       - name: Upload reports
         if: always()
         uses: actions/upload-artifact@v3

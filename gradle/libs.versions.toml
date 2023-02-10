@@ -1,10 +1,14 @@
 [versions]
 agp = "7.4.1"
 androidx-activity = "1.6.1"
+jdk-desugar = "2.0.2"
 kotlin = "1.8.10"
 ktor = "2.2.3"
+minSdk = "24"
+targetSdk = "33"
 
 [libraries]
+android-tools-jdk-desugar = { module = "com.android.tools:desugar_jdk_libs", version.ref = "jdk-desugar" }
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activity" }
 
 [plugins]
