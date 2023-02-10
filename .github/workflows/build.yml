@@ -19,7 +19,7 @@ jobs:
           cache: 'gradle'
       - name: Configure Gradle
         run: ./gradlew help
-      - name: Build project
+      - name: Build Android project
         run: ./gradlew build --stacktrace
       - name: Upload reports
         if: always()
@@ -27,3 +27,11 @@ jobs:
         with:
           name: shared-module-reports
           path: ./shared/build/reports
+      - name: Install XcodeGen
+        env:
+          HOMEBREW_NO_INSTALL_CLEANUP: '1'
+        run: brew install xcodegen
+      - name: Generate iOS Project
+        run: xcodegen generate --spec ios/project.yml
+      - name: Build iOS project
+        run: xcodebuild build -project ios/Reddit.xcodeproj CODE_SIGN_IDENTITY='' CODE_SIGNING_REQUIRED=NO

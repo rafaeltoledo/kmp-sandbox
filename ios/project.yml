@@ -1,0 +1,12 @@
+name: Reddit
+
+options:
+  bundleIdPrefix: net.rafaeltoledo.reddit.ios
+
+targets:
+  RedditApp:
+    type: application
+    platform: iOS
+    deploymentTarget: "14.0"
+    sources:
+      - Reddit
