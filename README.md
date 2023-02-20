@@ -11,7 +11,7 @@ This is not intended to be a guide or anything related. I'm just trying to explo
 - [x] To have a buildable empty project on Android and iOS with a single shared module
 - [x] Add `shared` module as dependency on both Android and iOS apps
 - [x] To have an empty screen (Compose-based on Android, SwiftUI-based on iOS) consuming a single method from the shared module
-- [ ] Configure Github Actions to make APK available to download
+- [x] Configure Github Actions to make APK available to download
 - [ ] Setup [Kotlin Multiplatform Serialization](https://github.com/Kotlin/kotlinx.serialization) on the `shared`
 - [ ] Setup [Ktor](https://ktor.io/) client on the `shared` module, and its JSON support using **KMS**
 - [ ] Setup [Detekt](https://detekt.dev/) and [SwiftLint](https://realm.github.io/SwiftLint/) to avoid accumulation of issues
