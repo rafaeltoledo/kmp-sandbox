@@ -1,8 +1,10 @@
 package net.rafaeltoledo.reddit.android.ui
 
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Text
 import net.rafaeltoledo.reddit.Platform
 
 class MainActivity : ComponentActivity() {
@@ -10,6 +12,10 @@ class MainActivity : ComponentActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
 
-    Log.d("RedditApp", Platform().name())
+    setContent {
+      MaterialTheme {
+        Text(text = Platform().name())
+      }
+    }
   }
 }

@@ -10,6 +10,6 @@ This is not intended to be a guide or anything related. I'm just trying to explo
 
 - [x] To have a buildable empty project on Android and iOS with a single shared module
 - [x] Add `shared` module as dependency on both Android and iOS apps
-- [ ] To have an empty screen (Compose-based on Android, SwiftUI-based on iOS) consuming a single method from the shared module
+- [x] To have an empty screen (Compose-based on Android, SwiftUI-based on iOS) consuming a single method from the shared module
 - [ ] millions of intermediate steps
 - [ ] A working client for the Reddit API. Why Reddit? Because I find their API a bit too much complex. So it would be a good exercise to consume it in a clean way.

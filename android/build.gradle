@@ -22,12 +22,24 @@ android {
   kotlinOptions {
     jvmTarget = 11
   }
+
+  buildFeatures {
+    compose true
+  }
+
+  composeOptions {
+    kotlinCompilerExtensionVersion = libs.versions.androidx.compose.compiler.get()
+  }
 }
 
 dependencies {
   implementation project(':shared')
 
   implementation libs.androidx.activity.compose
+
+  implementation platform(libs.androidx.compose.bom)
+
+  implementation libs.androidx.compose.material.material
 
   coreLibraryDesugaring libs.android.tools.jdk.desugar
 }
