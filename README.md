@@ -14,6 +14,8 @@ This is not intended to be a guide or anything related. I'm just trying to explo
 - [ ] Configure Github Actions to make APK available to download
 - [ ] Setup [Kotlin Multiplatform Serialization](https://github.com/Kotlin/kotlinx.serialization) on the `shared`
 - [ ] Setup [Ktor](https://ktor.io/) client on the `shared` module, and its JSON support using **KMS**
+- [ ] Setup [Detekt](https://detekt.dev/) and [SwiftLint](https://realm.github.io/SwiftLint/) to avoid accumulation of issues
+- [ ] (Maybe) include the [Jetpack Compose Rules](https://mrmans0n.github.io/compose-rules/detekt/) with Detekt
 - [ ] Create a [Reddit](https://www.reddit.com/dev/api/) Application to be used with this project and setup the secrets on Github Actions
 - [ ] Create a `/r/frontpage/hot` mockup on Android (with static data, text only)
 - [ ] Craate a `/r/frontpage/hot` mockup on iOS (with static data, text only)
