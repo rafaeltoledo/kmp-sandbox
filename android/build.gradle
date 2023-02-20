@@ -12,6 +12,28 @@ android {
     minSdk libs.versions.minSdk.get().toInteger()
   }
 
+  signingConfigs {
+    debug {
+      storeFile file("$rootDir/distribution/debug.keystore")
+    }
+
+    release {
+      storeFile file("$rootDir/distribution/release.keystore")
+      storePassword System.env.ANDROID_RELEASE_STORE_PASSWORD
+      keyAlias 'kmp'
+      keyPassword System.env.ANDROID_RELEASE_KEY_PASSWORD
+    }
+  }
+
+  buildTypes {
+    release {
+      signingConfig signingConfigs.release
+
+      minifyEnabled true
+      proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+    }
+  }
+
   compileOptions {
     coreLibraryDesugaringEnabled true
 

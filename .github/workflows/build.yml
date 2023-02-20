@@ -33,7 +33,14 @@ jobs:
           cache: 'gradle'
       - name: Configure Gradle
         run: ./gradlew help
+      - name: Decrypt release key
+        env:
+          CIPHER_DECRYPT_KEY: ${{ secrets.CIPHER_DECRYPT_KEY }}
+        run: openssl aes-256-cbc -d -in distribution/release.keystore-cipher -out distribution/release.keystore -md sha512 -pbkdf2 -k ${{ secrets.CIPHER_DECRYPT_KEY }}
       - name: Build Android project
+        env:
+          ANDROID_RELEASE_STORE_PASSWORD: ${{ secrets.ANDROID_RELEASE_STORE_PASSWORD }}
+          ANDROID_RELEASE_KEY_PASSWORD: ${{ secrets.ANDROID_RELEASE_KEY_PASSWORD }}
         run: ./gradlew clean assemble --stacktrace
       - name: Upload reports
         if: always()
@@ -41,6 +48,11 @@ jobs:
         with:
           name: shared-module-reports
           path: ./shared/build/reports
+      - name: Upload Android APK
+        uses: actions/upload-artifact@v3
+        with:
+          name: 'android-apk'
+          path: ./android/build/outputs/apk/release/android-release.apk
       - name: Install XcodeGen
         env:
           HOMEBREW_NO_INSTALL_CLEANUP: '1'
