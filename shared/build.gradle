@@ -51,18 +51,20 @@ kotlin {
       }
 
       sourceSets {
-        commonMain {
-          dependencies {
-            implementation libs.kotlinx.serialization.json
-          }
-        }
-
         iosSimulatorArm64Main {
           dependsOn iosMain
         }
         iosSimulatorArm64Test {
           dependsOn iosTest
         }
+      }
+    }
+  }
+
+  sourceSets {
+    commonMain {
+      dependencies {
+        implementation libs.kotlinx.serialization.json
       }
     }
   }
