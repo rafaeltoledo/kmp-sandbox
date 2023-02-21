@@ -4,6 +4,9 @@ import SwiftUI
 struct ContentView: View {
 
   var body: some View {
-    Text(Platform().name())
+    VStack {
+      Text(Platform().name())
+      Text(SerializationTest().canWeSerialize())
+    }
   }
 }

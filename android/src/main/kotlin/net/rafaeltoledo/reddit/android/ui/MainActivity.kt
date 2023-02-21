@@ -6,6 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import net.rafaeltoledo.reddit.Platform
+import net.rafaeltoledo.reddit.SerializationTest
 
 class MainActivity : ComponentActivity() {
 
@@ -14,7 +15,7 @@ class MainActivity : ComponentActivity() {
 
     setContent {
       MaterialTheme {
-        Text(text = Platform().name())
+        Text(text = "${Platform().name()}\n${SerializationTest().canWeSerialize()}")
       }
     }
   }

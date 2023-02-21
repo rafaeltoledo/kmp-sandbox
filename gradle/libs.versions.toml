@@ -6,6 +6,7 @@ androidx-compose-compiler = "1.4.2"
 androidx-lifecycle = "2.5.1"
 jdk-desugar = "2.0.2"
 kotlin = "1.8.10"
+kotlinx-serialization = "1.4.1"
 ktor = "2.2.3"
 minSdk = "24"
 targetSdk = "33"
@@ -29,9 +30,12 @@ androidx-compose-ui-uitextfonts = { module = "androidx.compose.ui:ui-text-google
 androidx-compose-ui-util = { module = "androidx.compose.ui:ui-util" }
 androidx-compose-ui-viewbinding = { module = "androidx.compose.ui:ui-viewbinding" }
 
+kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinx-serialization" }
+
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 android-library = { id = "com.android.library", version.ref = "agp" }
 
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
