@@ -2,7 +2,6 @@ package net.rafaeltoledo.reddit
 
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
-import io.ktor.client.engine.cio.CIO
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.client.request.get
 import io.ktor.client.statement.HttpResponse
@@ -14,7 +13,7 @@ import net.rafaeltoledo.reddit.data.SampleResponse
 class RequestTest {
 
   suspend fun doRequest(): SampleResponse? {
-    val response: HttpResponse = HttpClient(CIO) {
+    val response: HttpResponse = HttpClient {
       install(ContentNegotiation) {
         json()
       }
