@@ -11,7 +11,7 @@ struct ContentView: View {
       Text(SerializationTest().canWeSerialize())
       Button("Press me") {
         Task {
-          RequestTest().doRequest(completionHandler: { result, error in
+          RequestTest().doRequest(completionHandler: { result, _ in
             self.result = String(describing: result)
           })
         }

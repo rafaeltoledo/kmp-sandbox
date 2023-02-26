@@ -1,6 +1,7 @@
 plugins {
-  id 'com.android.application'
-  id 'org.jetbrains.kotlin.android'
+  alias libs.plugins.android.application
+  alias libs.plugins.kotlin.android
+  alias libs.plugins.detekt
 }
 
 android {
@@ -64,4 +65,8 @@ dependencies {
   implementation libs.androidx.compose.material.material
 
   coreLibraryDesugaring libs.android.tools.jdk.desugar
+}
+
+detekt {
+  config = files("$rootDir/config/detekt/detekt.yml")
 }

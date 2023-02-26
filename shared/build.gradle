@@ -4,6 +4,7 @@ plugins {
   alias libs.plugins.android.library
   alias libs.plugins.kotlin.multiplatform
   alias libs.plugins.kotlin.serialization
+  alias libs.plugins.detekt
 }
 
 android {
@@ -85,4 +86,14 @@ kotlin {
   }
 
   jvmToolchain(11)
+}
+
+detekt {
+  source = files(
+    'src/commonMain/kotlin',
+    'src/androidMain/kotlin',
+    'src/iosMain/kotlin',
+  )
+
+  config = files("$rootDir/config/detekt/detekt.yml")
 }

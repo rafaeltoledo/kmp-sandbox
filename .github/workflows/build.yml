@@ -37,27 +37,40 @@ jobs:
         env:
           CIPHER_DECRYPT_KEY: ${{ secrets.CIPHER_DECRYPT_KEY }}
         run: openssl aes-256-cbc -d -in distribution/release.keystore-cipher -out distribution/release.keystore -md sha512 -pbkdf2 -k ${{ secrets.CIPHER_DECRYPT_KEY }}
+      - name: Run lints with Gradle
+        run: ./gradlew lintReportRelease detekt --stacktrace
       - name: Build Android project
         env:
           ANDROID_RELEASE_STORE_PASSWORD: ${{ secrets.ANDROID_RELEASE_STORE_PASSWORD }}
           ANDROID_RELEASE_KEY_PASSWORD: ${{ secrets.ANDROID_RELEASE_KEY_PASSWORD }}
-        run: ./gradlew clean assemble --stacktrace
+        run: ./gradlew assemble --stacktrace
       - name: Upload reports
         if: always()
         uses: actions/upload-artifact@v3
         with:
-          name: shared-module-reports
-          path: ./shared/build/reports
+          name: lint-reports
+          path: |
+            ./shared/build/reports
+            ./android/build/reports
       - name: Upload Android APK
         uses: actions/upload-artifact@v3
         with:
           name: 'android-apk'
           path: ./android/build/outputs/apk/release/android-release.apk
-      - name: Install XcodeGen
+      - name: Install XcodeGen and Swiftlint
         env:
           HOMEBREW_NO_INSTALL_CLEANUP: '1'
-        run: brew install xcodegen
+        continue-on-error: true
+        run: brew install xcodegen swiftlint
       - name: Generate iOS Project
         run: xcodegen generate --spec ios/project.yml
+      - name: Run Swiftlint
+        run: swiftlint lint --path ios/ --reporter html > ios/swiftlint.html
+      - name: Upload Swiftlint report
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: 'swiftlint'
+          path: ./ios/swiftlint.html
       - name: Build iOS project
         run: xcodebuild build -project ios/Reddit.xcodeproj CODE_SIGN_IDENTITY='' CODE_SIGNING_REQUIRED=NO
