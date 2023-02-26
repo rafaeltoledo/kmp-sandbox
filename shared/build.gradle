@@ -88,6 +88,10 @@ kotlin {
   jvmToolchain(11)
 }
 
+dependencies {
+  detektPlugins libs.detekt.compose.rules
+}
+
 detekt {
   source = files(
     'src/commonMain/kotlin',

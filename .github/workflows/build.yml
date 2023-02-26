@@ -65,7 +65,7 @@ jobs:
       - name: Generate iOS Project
         run: xcodegen generate --spec ios/project.yml
       - name: Run Swiftlint
-        run: swiftlint lint --path ios/ --reporter html > ios/swiftlint.html
+        run: swiftlint lint --reporter html ios/  > ios/swiftlint.html
       - name: Upload Swiftlint report
         if: always()
         uses: actions/upload-artifact@v3

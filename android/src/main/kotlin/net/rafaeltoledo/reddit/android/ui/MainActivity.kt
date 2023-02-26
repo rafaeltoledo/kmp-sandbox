@@ -33,11 +33,14 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Screen(scaffoldState: ScaffoldState = rememberScaffoldState()) {
+fun Screen(
+  modifier: Modifier = Modifier,
+  scaffoldState: ScaffoldState = rememberScaffoldState(),
+) {
 
   val scope = rememberCoroutineScope()
 
-  Scaffold(scaffoldState = scaffoldState) {
+  Scaffold(modifier = modifier, scaffoldState = scaffoldState) {
     Column(modifier = Modifier.padding(it)) {
       Text(text = "${Platform().name()}\n${SerializationTest().canWeSerialize()}")
 
