@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+  <style name="Theme.Base.Reddit" parent="android:Theme.Material.Light.NoActionBar">
+    <item name="android:windowLightStatusBar">true</item>
+    <item name="android:windowLightNavigationBar" tools:targetApi="27">true</item>
+  </style>
+
+  <style name="Theme.Reddit" parent="Theme.Base.Reddit">
+    <item name="android:statusBarColor">@android:color/transparent</item>
+    <item name="android:navigationBarColor">@android:color/transparent</item>
+  </style>
+
+  <style name="Theme.Reddit.Splash" parent="Theme.SplashScreen">
+    <item name="android:windowLightStatusBar">true</item>
+    <item name="android:windowLightNavigationBar" tools:targetApi="27">true</item>
+
+    <item name="windowSplashScreenAnimatedIcon">@drawable/ic_splash</item>
+    <item name="windowSplashScreenBackground">@color/brand</item>
+    <item name="postSplashScreenTheme">@style/Theme.Reddit</item>
+  </style>
+</resources>

@@ -59,6 +59,8 @@ dependencies {
   implementation project(':shared')
 
   implementation libs.androidx.activity.compose
+  implementation libs.androidx.core.splashscreen
+  implementation libs.androidx.navigation.compose
 
   implementation platform(libs.androidx.compose.bom)
 

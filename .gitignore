@@ -2,3 +2,4 @@
 .gradle/
 local.properties
 release.keystore
+.DS_Store
