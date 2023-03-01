@@ -1,6 +1,8 @@
 plugins {
   alias libs.plugins.android.application
+  alias libs.plugins.hilt.android
   alias libs.plugins.kotlin.android
+  alias libs.plugins.kotlin.kapt
   alias libs.plugins.detekt
 }
 
@@ -55,16 +57,31 @@ android {
   }
 }
 
+kapt {
+  correctErrorTypes true
+}
+
+hilt {
+  enableAggregatingTask = true
+}
+
 dependencies {
   implementation project(':shared')
 
   implementation libs.androidx.activity.compose
   implementation libs.androidx.core.splashscreen
   implementation libs.androidx.navigation.compose
+  implementation libs.androidx.lifecycle.runtime.compose
+  implementation libs.androidx.lifecycle.viewmodel.compose
 
   implementation platform(libs.androidx.compose.bom)
 
   implementation libs.androidx.compose.material.material
+
+  implementation libs.androidx.hilt.navigation.compose
+
+  implementation libs.hilt.android
+  kapt libs.hilt.compiler
 
   coreLibraryDesugaring libs.android.tools.jdk.desugar
 
