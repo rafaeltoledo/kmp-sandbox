@@ -1,11 +1,14 @@
 package net.rafaeltoledo.reddit.android.feature.subreddit
 
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material.CircularProgressIndicator
-import androidx.compose.material.Scaffold
+import androidx.compose.material.ExperimentalMaterialApi
+import androidx.compose.material.ListItem
 import androidx.compose.material.Text
-import androidx.compose.material.TopAppBar
+import androidx.compose.material3.CenterAlignedTopAppBar
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
@@ -25,6 +28,7 @@ fun SubRedditRoute(
   )
 }
 
+@OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterialApi::class)
 @Composable
 fun SubRedditScreen(
   subRedditUiState: SubRedditUiState,
@@ -36,18 +40,20 @@ fun SubRedditScreen(
     }
 
     is SubRedditUiState.Success -> {
-      Scaffold(
-        modifier = modifier,
-        topBar = {
-          TopAppBar(title = {
+      Column(modifier = modifier) {
+        CenterAlignedTopAppBar(
+          modifier = Modifier,
+          title = {
             Text(subRedditUiState.subRedditName)
-          })
-        }
-      ) {
-        Box(
-          modifier = Modifier
-            .padding(it),
+          },
         )
+        LazyColumn {
+          items(subRedditUiState.comments) {
+            ListItem(
+              text = { Text(it) }
+            )
+          }
+        }
       }
     }
   }

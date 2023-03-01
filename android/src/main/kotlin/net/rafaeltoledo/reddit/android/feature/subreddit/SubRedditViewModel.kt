@@ -33,7 +33,27 @@ class SubRedditViewModel @Inject constructor(
     return flowOf(
       SubRedditUiState.Success(
         subRedditName,
-        listOf(),
+        listOf( // Mock data
+          "Dave Grohl showed up with no publicity to cook and serve for 500 people at Hope Mission in L.A.",
+          "When people make fun of me watching twitch I show them this...",
+          "Finland begins building \$597 million barbed wire fence on Russian border",
+          "Florida Republicans introduce a bill to eliminate the Democratic Party.",
+          "Triple bacon - Day 99",
+          "Amy Coney Barrett joins liberal Supreme Court justices in scrutinizing a student-loan company's " +
+            "involvement in one of the lawsuits blocking Biden's debt relief",
+          "TIL that “Stranger Things” star Winona Ryder pushed for Kate Bush’s song “Running Up That Hill” to " +
+            "be featured on the show. Ryder also stated that for seven years, she dropped hints on the show’s " +
+            "set by wearing her Kate Bush t-shirts. Winona’s plan eventually worked.",
+          "Born today. Both parents are white as snow.",
+          "This Japanese restaurant has a waxwork samurai in the urinals",
+          "to get a snack",
+          "Brendan Fraser posing with his SAG award. Taken from his IG.",
+          "Starbucks told us there were no pup cups today. (OC).",
+          "This man has nurtured a turtle with an exposed heart to ensure she survives and thrives (3:31)",
+          "Dave Grohl spent 16 hours in a storm BBQing for the homeless in LA",
+          "me irl",
+          "Woman is detained for wearing a bikini on a beach",
+        ),
       )
     )
   }
