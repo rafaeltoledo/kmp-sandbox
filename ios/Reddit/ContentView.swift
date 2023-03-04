@@ -6,17 +6,10 @@ struct ContentView: View {
   private var result: String = ""
 
   var body: some View {
-    VStack {
-      Text(Platform().name())
-      Text(SerializationTest().canWeSerialize())
-      Button("Press me") {
-        Task {
-          RequestTest().doRequest(completionHandler: { result, _ in
-            self.result = String(describing: result)
-          })
-        }
-      }
-      Text(result)
+    NavigationView {
+      SubRedditScreen()
+          .environmentObject(SubRedditModel())
+          .navigationBarTitle("all")
     }
   }
 }
