@@ -19,13 +19,19 @@ This is not intended to be a guide or anything related. I'm just trying to explo
 - [x] Create a [Reddit](https://www.reddit.com/dev/api/) Application to be used with this project and setup the secrets on Github Actions
 - [x] Create a `/r/all/hot` mockup on Android (with static data, text only)
 - [x] Craate a `/r/all/hot` mockup on iOS (with static data, text only)
-- [ ] Map `https://api.reddit.com/r/all/hot` call on shared module
+- [ ] Map [`https://api.reddit.com/r/all/hot`](https://api.reddit.com/r/all/hot) call on shared module
 - [ ] Integrate the real API call in the Android app
 - [ ] Integrate the real API call in the iOS app
 - [ ] Map additional fieds into the Reddit client in the `shared` module
 - [ ] (Need to split into smaller tasks) Tweak the Android client to include images, upvotes, description, usernames, upvotes, etc.
 - [ ] (Need to split into smaller tasks) Tweak the iOS client to include images, upvotes, description, usernames, upvotes, etc.
 - [ ] Find a design to follow and implement it - [Example #1](https://www.behance.net/gallery/129265627/Reddit-App-Redesign?tracking_source=search_projects_recommended%7Credesign+reddit+.) | [Example 2](https://dribbble.com/shots/12209544-Reddit-App-Redesign)
+- [ ] (Need to split into smaller tasks) Allow users to select sorting (`hot`, `new`, `rising`, `top`, `controversial`, etc.)
+- [ ] (Need to split into smaller tasks) Allow users to authenticate
+- [ ] (Need to split into smaller tasks) Allow users to navigate to a comment details and see the discussion
+- [ ] (Need to split into smaller tasks) Allow users to navigate to other subreddits
+- [ ] (Need to split into smaller tasks) Allow users to navigate to create posts
+- [ ] (Need to split into smaller tasks) Allow users to navigate to upvote/downvote comments
 - [ ] millions of intermediate steps
 - [ ] A working client for the Reddit API. Why Reddit? Because I find their API a bit too much complex. So it would be a good exercise to consume it in a clean way.
 
