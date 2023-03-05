@@ -17,8 +17,8 @@ This is not intended to be a guide or anything related. I'm just trying to explo
 - [x] Setup [Detekt](https://detekt.dev/) and [SwiftLint](https://realm.github.io/SwiftLint/) to avoid accumulation of issues
 - [x] Include the [Jetpack Compose Rules](https://mrmans0n.github.io/compose-rules/detekt/) with Detekt
 - [x] Create a [Reddit](https://www.reddit.com/dev/api/) Application to be used with this project and setup the secrets on Github Actions
-- [ ] Create a `/r/all/hot` mockup on Android (with static data, text only)
-- [ ] Craate a `/r/all/hot` mockup on iOS (with static data, text only)
+- [x] Create a `/r/all/hot` mockup on Android (with static data, text only)
+- [x] Craate a `/r/all/hot` mockup on iOS (with static data, text only)
 - [ ] Map basic endpoints / data models from Reddit API in the `shared` module
 - [ ] millions of intermediate steps
 - [ ] A working client for the Reddit API. Why Reddit? Because I find their API a bit too much complex. So it would be a good exercise to consume it in a clean way.
