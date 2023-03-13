@@ -19,8 +19,8 @@ This is not intended to be a guide or anything related. I'm just trying to explo
 - [x] Create a [Reddit](https://www.reddit.com/dev/api/) Application to be used with this project and setup the secrets on Github Actions
 - [x] Create a [`/r/all/hot`](https://reddit.com/r/all/hot) mockup on Android (with static data, text only)
 - [x] Craate a [`/r/all/hot`](https://reddit.com/r/all/hot) mockup on iOS (with static data, text only)
-- [ ] Map [`https://api.reddit.com/r/all/hot`](https://api.reddit.com/r/all/hot) call on shared module
-- [ ] Integrate the real API call in the Android app
+- [x] Map [`https://api.reddit.com/r/all/hot`](https://api.reddit.com/r/all/hot) call on shared module
+- [x] Integrate the real API call in the Android app
 - [ ] Integrate the real API call in the iOS app
 - [ ] Map additional fieds into the Reddit client in the `shared` module
 - [ ] (Need to split into smaller tasks) Tweak the Android client to include images, upvotes, description, usernames, upvotes, etc.
