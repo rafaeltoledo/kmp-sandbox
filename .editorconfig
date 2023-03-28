@@ -11,3 +11,6 @@ trim_trailing_whitespace = true
 
 [*.kt]
 max_line_length = 100
+
+[*.swift]
+max_line_length = 100
