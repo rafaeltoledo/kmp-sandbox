@@ -37,17 +37,6 @@ android {
     }
   }
 
-  compileOptions {
-    coreLibraryDesugaringEnabled true
-
-    sourceCompatibility JavaVersion.VERSION_11
-    targetCompatibility JavaVersion.VERSION_11
-  }
-
-  kotlinOptions {
-    jvmTarget = 11
-  }
-
   buildFeatures {
     compose true
   }
@@ -55,6 +44,10 @@ android {
   composeOptions {
     kotlinCompilerExtensionVersion = libs.versions.androidx.compose.compiler.get()
   }
+}
+
+kotlin {
+  jvmToolchain(17)
 }
 
 kapt {
@@ -84,11 +77,9 @@ dependencies {
   implementation libs.hilt.android
   kapt libs.hilt.compiler
 
-  coreLibraryDesugaring libs.android.tools.jdk.desugar
-
   detektPlugins libs.detekt.compose.rules
 }
 
 detekt {
-  config = files("$rootDir/config/detekt/detekt.yml")
+  config.setFrom("$rootDir/config/detekt/detekt.yml")
 }

@@ -13,17 +13,6 @@ android {
     multiDexEnabled true
     minSdk libs.versions.minSdk.get().toInteger()
   }
-
-  compileOptions {
-    coreLibraryDesugaringEnabled true
-
-    sourceCompatibility JavaVersion.VERSION_11
-    targetCompatibility JavaVersion.VERSION_11
-  }
-}
-
-dependencies {
-  coreLibraryDesugaring libs.android.tools.jdk.desugar
 }
 
 kotlin {
@@ -37,6 +26,8 @@ kotlin {
       }
     }
   }
+
+  jvmToolchain(17)
 
   sourceSets {
     commonMain {
@@ -76,11 +67,11 @@ dependencies {
 }
 
 detekt {
-  source = files(
+  source.setFrom(files(
     'src/commonMain/kotlin',
     'src/androidMain/kotlin',
     'src/iosMain/kotlin',
-  )
+  ))
 
-  config = files("$rootDir/config/detekt/detekt.yml")
+  config.setFrom("$rootDir/config/detekt/detekt.yml")
 }

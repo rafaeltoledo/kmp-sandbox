@@ -1,1 +1,1 @@
-# Nothing to add yet
+-dontwarn org.slf4j.impl.StaticLoggerBinder
