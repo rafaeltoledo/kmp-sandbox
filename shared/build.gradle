@@ -40,7 +40,7 @@ kotlin {
       }
     }
 
-    androidMain {
+    androidTargetMain {
       dependencies {
         implementation libs.ktor.client.android
       }
