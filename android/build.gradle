@@ -2,7 +2,7 @@ plugins {
   alias libs.plugins.android.application
   alias libs.plugins.hilt.android
   alias libs.plugins.kotlin.android
-  alias libs.plugins.kotlin.kapt
+  alias libs.plugins.google.ksp
   alias libs.plugins.detekt
 }
 
@@ -50,10 +50,6 @@ kotlin {
   jvmToolchain(17)
 }
 
-kapt {
-  correctErrorTypes true
-}
-
 hilt {
   enableAggregatingTask = true
 }
@@ -75,7 +71,7 @@ dependencies {
   implementation libs.androidx.hilt.navigation.compose
 
   implementation libs.hilt.android
-  kapt libs.hilt.compiler
+  ksp libs.hilt.compiler
 
   detektPlugins libs.detekt.compose.rules
 }
