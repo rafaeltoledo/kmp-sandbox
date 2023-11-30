@@ -13,6 +13,9 @@ android {
   defaultConfig {
     targetSdk libs.versions.targetSdk.get().toInteger()
     minSdk libs.versions.minSdk.get().toInteger()
+
+    versionName '0.0.1'
+    versionCode 1
   }
 
   signingConfigs {
@@ -54,6 +57,10 @@ hilt {
   enableAggregatingTask = true
 }
 
+detekt {
+  config.setFrom("$rootDir/config/detekt/detekt.yml")
+}
+
 dependencies {
   implementation project(':shared')
 
@@ -74,8 +81,4 @@ dependencies {
   ksp libs.hilt.compiler
 
   detektPlugins libs.detekt.compose.rules
-}
-
-detekt {
-  config.setFrom("$rootDir/config/detekt/detekt.yml")
 }

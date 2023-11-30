@@ -17,7 +17,9 @@ android {
 
 kotlin {
   androidTarget()
-  ios()
+  iosX64()
+  iosArm64()
+  iosSimulatorArm64()
 
   [iosX64(), iosArm64(), iosSimulatorArm64()].forEach {
     it.binaries {
@@ -50,14 +52,6 @@ kotlin {
       dependencies {
         implementation libs.ktor.client.ios
       }
-    }
-
-    iosSimulatorArm64Main {
-      dependsOn iosMain
-    }
-
-    iosSimulatorArm64Test {
-      dependsOn iosTest
     }
   }
 }
